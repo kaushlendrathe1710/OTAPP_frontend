@@ -1,0 +1,6 @@
+.dashboardContainer{
+    background-color: #fff;
+    height: calc(100% + 0rem);
+    width: calc(100% + 4rem);
+    margin: 1rem 0;
+}

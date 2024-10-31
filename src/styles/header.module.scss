@@ -1,0 +1,239 @@
+.headerWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 1px 1rem 0 rgba(0, 0, 0, 0.05);
+  transition: 300ms;
+}
+.header {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 80px;
+  @media (max-width: 900px) {
+    padding: 1rem;
+  }
+  .right,
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    @media (max-width: 940px) {
+      gap: 1rem;
+    }
+    a {
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-700);
+      padding: 0.75rem 0;
+      transition: 300ms;
+      text-transform: capitalize;
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+      span {
+        font-size: 1.125rem;
+        font-weight: 500;
+      }
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+    button:not(.hamMenu) {
+      @media (max-width: 900px) {
+        height: 44px;
+        padding: 0 1rem;
+      }
+      @media (max-width: 768px) {
+        display: none;
+      }
+      font-weight: 500;
+    }
+  }
+  nav {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+.hamMenu {
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border-radius: 1rem;
+  // display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+.nestedRoutesContainer {
+  position: relative;
+  .nestedRoutesLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    cursor: pointer;
+    &:hover {
+      color: var(--primary-color);
+    }
+    svg {
+      position: relative;
+      top: 1px;
+      width: 14px !important;
+      height: 14px !important;
+      stroke-width: 0.5px;
+      fill: var(--gray-700);
+      transition: all 300ms;
+    }
+  }
+  &:hover .nestedRoutes {
+    display: flex;
+  }
+  &:hover .nestedRoutesLabel svg {
+      transform: rotate(-180deg);
+  }
+  .nestedRoutes {
+    position: absolute;
+    top: 40px;
+    left: -4px;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    width: 280px;
+    // display: flex;
+    display: none;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: 0.3s;
+    transform-origin: top left;
+    animation: fade-out 0.3s ease 1;
+    a {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 1rem 1.25rem;
+      // transition: all 300ms;
+      border-radius: 0.75rem;
+      span {
+        font: inherit;
+        color: var(--gray-800);
+      }
+      svg {
+        fill: var(--gray-700);
+        width: 26px;
+        height: 26px;
+      }
+      &:hover {
+        background-color: var(--primary-50);
+      }
+    }
+  }
+}
+@keyframes fade-out {
+  from {
+    transform: scale(0.99) translateY(-10px);
+  }
+  to {
+    transform: scale(1) translateY(0px);
+  }
+}
+
+.sideNavbar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  transition: 300ms;
+  overflow-y: auto;
+  margin-bottom: 2rem;
+  @media (max-width: 768px) {
+    display: block;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 2rem;
+    @media (max-width: 520px) {
+      padding: 0 1rem;
+    }
+    .closeMenu {
+      width: 48px;
+      height: 48px;
+      background-color: transparent;
+      border-radius: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      outline: none;
+    }
+  }
+  .navWrapper {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 1rem;
+    @media (max-width: 520px) {
+      padding: 0 1rem;
+    }
+    button {
+      width: fit-content;
+    }
+  }
+  nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    a {
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-800);
+      transition: 300ms;
+      text-transform: capitalize;
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+      span {
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+}

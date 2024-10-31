@@ -1,0 +1,16 @@
+.highlightUnderlineText{
+    width: fit-content;
+    display: inline-block;
+    font: inherit;
+    position: relative;
+    span{
+        font: inherit;
+    }
+    img{
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        user-select: none;
+    }
+}

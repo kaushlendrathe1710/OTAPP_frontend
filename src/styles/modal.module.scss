@@ -1,0 +1,41 @@
+.modalBoxWrapper{
+    max-width: 600px;
+    width: 100%;
+    height: fit-content;
+    min-height: 300px;
+    // min-height: 100%;
+    border: 1px solid rgba(#fff, 0.3);
+    background-color: rgba(#fff, 0.75);
+    backdrop-filter: blur(32px) saturate(140%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border-radius: 1rem;
+    position: relative;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    h3{
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--gray-900);
+        line-height: 1.15;
+        letter-spacing: -0.5px;
+    }
+    p{
+        margin-top: .5rem;
+        line-height: 1.5;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--gray-900);
+    }
+    div:nth-child(2){
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        flex-direction: row-reverse;
+        align-self: flex-end;
+        flex-wrap: wrap-reverse;
+    }
+}

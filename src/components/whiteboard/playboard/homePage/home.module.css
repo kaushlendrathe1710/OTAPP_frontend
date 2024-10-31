@@ -1,0 +1,18 @@
+.home{
+    background-color: blueviolet;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+.creaWhiteboardBtn{
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: white;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

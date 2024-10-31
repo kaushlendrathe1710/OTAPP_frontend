@@ -1,0 +1,138 @@
+.aboutPage {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 80px;
+  min-height: 100vh;
+  @media (max-width: 450px) {
+    padding: 0 1.5rem;
+  }
+}
+.headingWrapper {
+  margin-top: 8rem;
+  h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    color: var(--gray-800);
+    @media (max-width: 450px) {
+      font-size: 3.5rem;
+    }
+  }
+}
+.h3 {
+  max-width: 900px;
+  margin-top: 2rem;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.75px;
+  word-spacing: 2px;
+  line-height: 1.35;
+  color: transparent;
+  background: linear-gradient(45deg, var(--primary-500), #ff5722);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  @media (max-width: 450px) {
+    font-size: 1.5rem;
+  }
+  &::selection {
+    -webkit-text-fill-color: white;
+  }
+}
+.para {
+  max-width: 900px;
+  margin: 2rem 0;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: -0.25px;
+  word-spacing: 1.5px;
+  color: var(--primary-800);
+  @media (max-width: 450px) {
+    font-size: 1rem;
+  }
+}
+
+.bgCurveGradientWrapper {
+  overflow-x: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  pointer-events: none;
+  max-width: 1440px;
+  margin: 0 auto;
+  z-index: -1;
+  filter: blur(64px) saturate(110%);
+  svg {
+    position: absolute;
+    height: auto;
+  }
+  svg:first-child {
+    right: 2%;
+    top: 10%;
+    max-width: 340px;
+    @media (max-width: 1400px) {
+      max-width: 260px;
+      right: 10%;
+    }
+    path {
+      fill: #b7ffe1;
+    }
+    animation: rotate-scale-up 5s linear infinite both;
+    animation-delay: 1s;
+  }
+  svg:nth-child(2) {
+    left: 20%;
+    bottom: 14%;
+    max-width: 300px;
+    path {
+      fill: #c6aeff;
+    }
+    animation: rotate-scale-up 5s linear infinite both;
+  }
+}
+.lastAboutWrapper {
+  margin-top: 12rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  @media (max-width: 1120px) {
+    gap: 1rem;
+  }
+  @media (max-width: 830px) {
+    flex-direction: column;
+    margin-top: 8rem;
+  }
+  img {
+    max-width: 540px;
+    height: auto;
+    object-fit: cover;
+    @media (max-width: 1120px) {
+      max-width: 460px;
+    }
+    @media (max-width: 930px) {
+      max-width: 380px;
+    }
+    @media (max-width: 450px) {
+      max-width: 300px;
+    }
+  }
+}
+
+@keyframes rotate-scale-up {
+  0% {
+    transform: scale(0.5) rotateZ(0);
+  }
+  50% {
+    transform: scale(1) rotateZ(180deg);
+  }
+  100% {
+    transform: scale(0.5) rotateZ(360deg);
+  }
+}

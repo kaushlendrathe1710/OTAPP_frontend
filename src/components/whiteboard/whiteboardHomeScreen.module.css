@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.heading{
+    margin-right: 50px;
+}
+.screenBody{
+    /* border: 2px solid white; */
+    margin-top: 10px;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    height: 88vh;
+}

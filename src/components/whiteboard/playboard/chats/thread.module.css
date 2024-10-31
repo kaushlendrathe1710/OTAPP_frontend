@@ -1,0 +1,15 @@
+.thread{
+    padding: 4px;
+    border-bottom: 1px solid #ccc;
+    /* box-shadow: inset 0 0 2px #ccc; */
+}
+.thread:hover{
+    background-color: #eee;
+    cursor: pointer;
+}
+.userName{
+}
+.lastMsg{
+    color: #888;
+    font-size: 14px;
+}

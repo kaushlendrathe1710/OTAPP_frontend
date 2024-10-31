@@ -1,0 +1,15 @@
+.actionBtn{
+    margin: 2px;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+}
+.actionBtn.selectedBtn{
+    color: #aa14f0;
+    background-color: #f6e7fd;
+}

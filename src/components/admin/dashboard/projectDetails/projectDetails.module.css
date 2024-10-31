@@ -1,0 +1,80 @@
+.container{
+    background-color: #fffc;
+    /* background-color: var(--primary-100); */
+    /* background-color: #0002; */
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+.row > div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.row > div > div{
+    width: 95%;
+    margin: 5px 0;
+}
+.row > div > div:nth-child(2){
+    background-color: var(--primary-100);
+    background-color: #fff6;
+    background-color: #0001;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+.docTypeContainer{
+    display: flex;
+    justify-content: flex-start;
+}
+.docTypeContainer label {
+    display: flex;
+    justify-content: flex-start;
+}
+.docTypeContainer label > input {
+    margin-right: 10px;
+
+}
+.whiteBg{
+    background-color: var(--primary-100);
+    background-color: #fff8;
+    background-color: #fff4;
+
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+.whiteBg > select{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+.whiteBg > input[type=number]{
+    font-size: 16px;
+    padding: 5px;
+}
+.numOfPagesInput{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.selectStyles{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+.uploadDocument{
+    background-color: #fff9;
+    background-color: #fff4;
+
+    /* width: fit-content; */
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid #0002;
+}

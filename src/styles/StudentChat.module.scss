@@ -1,0 +1,577 @@
+.StudentChatWrapper {
+    height: 700px;
+    width: 950px;
+    border-radius: 24px;
+    box-sizing: border-box;
+    background-color: rgba(#fff, 0.5);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 32px 0 rgba(31, 38, 135, 0.05);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.WrapperHeader {
+    border-bottom: 2px solid var(--gray-50);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 24px 24px 0px 0px;
+    padding: 8px 12px;
+}
+
+.adminImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.adminContainer {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    padding: 12px 20px;
+    height: 100%;
+}
+
+.adminContainer p {
+    color: green;
+}
+
+.CommunicationContainer {
+    height: 100%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Icons {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.ConversationMsg {
+    width: fit-content;
+    // max-width: 50%;
+    height: max-content;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    word-break: break-word;
+    position: relative;
+    padding-right: 2rem;
+    transition: all 300ms;
+
+    &:hover>button {
+        display: block !important;
+    }
+
+    .msgMenuBtn {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 32px;
+        height: 100%;
+        border: none;
+        background: transparent;
+        transition: all 300ms;
+
+        &:hover>svg {
+            transform: translateY(2px);
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--gray-950);
+            transform: translateY(0px);
+            transition: all 300ms;
+        }
+    }
+
+    .msgMenuSenderBtn {
+        svg {
+            fill: white;
+        }
+    }
+
+    .activeMsgMenuBtn {
+        display: block;
+        transform: translateY(2px) !important;
+    }
+}
+
+.attachmentPreviewWrapper {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    // height: 100%;
+    bottom: 0;
+    background-color: var(--primary-50);
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+
+    .header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+
+        // border-bottom: 1px solid var(--gray-600);
+        .closeButton {
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background-color: transparent;
+            transition: all 300ms;
+
+            svg {
+                width: 28px;
+                height: 28px;
+                fill: var(--primary-950);
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .emptyItemPreviewWrapper {
+        max-width: 768px;
+        margin: 1rem auto;
+        height: 425px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+        background-color: rgba;
+        color: var(--gray-950);
+        background-color: rgba(#fff, 0.3);
+        backdrop-filter: blur(32px) saturate(120%);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    }
+
+    .itemPreviewAndInputWrapper {
+        max-width: 768px;
+        margin: 1rem auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .itemPreviewWrapper {
+            // max-height: 600px;
+            height: 100%;
+            background-color: rgba(#000, 0.05);
+            border-radius: 1rem;
+
+            img {
+                border-radius: inherit;
+                width: 100%;
+                height: 368px;
+                object-fit: contain;
+            }
+        }
+
+        .previewItemInput {
+
+            // max-width: 768px;
+            // margin: 0 auto;
+            input {
+                width: 100%;
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--gray-950);
+                outline: none;
+                border: 2px solid rgba(#fff, 0.35);
+                border-radius: 1rem;
+                height: 52px;
+                padding: 0 1rem;
+                background-color: rgba(#fff, 0.5);
+                backdrop-filter: blur(4px);
+                box-shadow: 0 2px 32px 0 rgba(31, 38, 135, 0.05);
+                transition: all 300ms;
+
+                &:not(:disabled):hover {
+                    background-color: rgba(#fff, 0.75);
+                    border-color: rgba(#fff, 0.95);
+                }
+
+                &:not(:disabled):focus {
+                    background-color: rgba(#fff, 0.5);
+                    border-color: var(--primary-300);
+                }
+
+                &::placeholder {
+                    font-size: 1rem;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+
+    .itemPreviewSwitcher {
+        // max-width: 900px;
+        padding: 0 1.5rem;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+
+        .smallItemBoxPreview {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.75rem;
+            background-color: white;
+            cursor: pointer;
+
+            // transition: all 300ms;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: inherit;
+            }
+
+            &:hover>button {
+                display: block;
+            }
+
+            .removeAttachmentButton {
+                display: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 24px;
+                height: 24px;
+                border: none;
+                border-radius: 0.25rem;
+                background-color: rgba(#fff, 0.35);
+
+                svg {
+                    width: inherit;
+                    height: inherit;
+                    fill: var(--gray-950);
+                }
+            }
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 0.75rem;
+            border: none;
+            transition: all 300ms;
+            // &:hover{
+            //   background-color: var(--gray-50);
+            // }
+        }
+
+        .inputButton {
+            position: relative;
+
+            input {
+                cursor: pointer;
+                z-index: 2;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
+
+            svg {
+                width: 32px;
+                height: 32px;
+                fill: var(--primary-900);
+            }
+        }
+
+        .smallItemBoxPreviewActive {
+            outline: 3px solid var(--primary-500);
+            outline-offset: 1px;
+        }
+
+        .sendButton {
+            position: absolute;
+            right: 1.5rem;
+            background-color: var(--primary-500);
+            border-radius: 50%;
+
+            svg {
+                width: 24px;
+                height: 24px;
+                fill: white;
+                position: relative;
+                left: 2px;
+            }
+
+            &:hover {
+                background-color: var(--primary-400);
+            }
+
+            &:active {
+                transform: scale(0.975);
+            }
+        }
+    }
+}
+
+.fileWrapper {
+    // max-width: 768px;
+    // max-height: 990px;
+    // background-color: var(--gray-200);
+    // background-color: var(--primary-500);
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+        // color: white;
+        line-height: 1.5;
+    }
+
+    &:first-child>p {
+        margin-bottom: .75rem;
+    }
+
+    img {
+        max-width: 364px;
+        max-height: 364px;
+        width: 100%;
+        height: 100%;
+        min-width: 120px;
+        min-height: 120px;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+}
+
+.mainChatContainer {
+    height: 540px;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--gray-200);
+        border-radius: 10px;
+    }
+}
+
+.mainChatContainerModal {
+    height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--gray-200);
+        border-radius: 10px;
+    }
+}
+
+.msgContainer {
+    height: max-content;
+    margin: 5px 0px;
+    max-width: 45%;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 0px 16px 0px 16px;
+    font-size: 18px;
+    word-break: break-word;
+}
+
+.senderClass {
+    background-color: var(--primary-500);
+    color: white;
+    border-top-left-radius: 16px;
+    align-self: flex-end;
+}
+
+.receiverClass {
+    background-color: var(--gray-200);
+    border-bottom-right-radius: 16px;
+}
+
+.footer {
+    height: 80px;
+    border-top: 2px solid var(--gray-50);
+    border-radius: 0px 0px 24px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px 8px;
+}
+
+.attachFiles {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 5px;
+
+    &:hover {
+        background-color: var(--gray-200);
+        transition: all 0.5s;
+    }
+}
+
+.InputMsg {
+    width: 75%;
+    height: 52px;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    color: var(--gray-950);
+    padding: 1rem;
+    outline: none;
+    transition: all 300ms;
+
+    &:hover {
+        border: 1px solid rgba(0, 89, 255, 0.75);
+    }
+}
+
+.InputMsg::placeholder {
+    font-size: 1rem;
+    color: var(--gray-800);
+}
+
+.ReplyContainer {
+    // border: 2px solid red;
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    top: 78%;
+    border-radius: 20px;
+    // background-color: var(--gray-100);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px) saturate(110%);
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    align-items: center;
+}
+
+.replyCancle {
+    width: 35px;
+    height: 35px;
+    font-size: 22px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary-300);
+    color: white;
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+.replyInfo {
+    width: 100%;
+    position: relative;
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        position: absolute;
+        left: 90%;
+        top: 0;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .StudentChatWrapper {
+        width: 700px;
+    }
+
+    .btnSend {
+        left: 670px
+    }
+}
+
+@media (max-width: 768px) {
+    .StudentChatWrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .mainChatContainer {
+        height: 635px;
+    }
+
+    .btnSend {
+        left: 492px
+    }
+
+    .ReplyContainer {
+        top: 79%;
+    }
+}
+
+@media (max-width: 425px) {
+    .mainChatContainer {
+        height: 465px;
+    }
+
+    .ReplyContainer {
+        top: 74%;
+    }
+
+    .replyInfo {
+        width: 75%;
+    }
+}

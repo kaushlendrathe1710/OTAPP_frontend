@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 3%;
+    font-family: sans-serif;
+    padding-right: 200px;
+}
+.box2{
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+    /* padding-right: 100px; */
+}
+.box2 > button, .box2 > div > buttton{
+    background-color: transparent;
+    padding: 5px 10px;
+    border: none;
+    font-size: 20px;
+    /* border-radius: 20px; */
+    /* border: 2px solid blueviolet; */
+}

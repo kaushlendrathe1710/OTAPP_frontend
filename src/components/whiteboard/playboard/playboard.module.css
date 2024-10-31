@@ -1,0 +1,28 @@
+.whiteboardPageBox {
+    height: 100vh;
+    width: 107%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: -1rem -2rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.whiteboard {
+    width: 100%;
+    box-shadow: 5px 5px gray;
+    overflow: scroll;
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+}
+
+.whiteboard::-webkit-scrollbar {
+    display: none;
+}
+
+.whiteboard>svg {
+    background-color: #e5e5e5;
+}

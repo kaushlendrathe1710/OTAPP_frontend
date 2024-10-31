@@ -1,0 +1,15 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 280px;
+    width: auto;
+    right: 0;
+    height: 72px;
+    background-color: rgba(#fff, 0.35);
+    border-bottom: 1px solid rgba(#000, 0.1);
+    transition: 300ms;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 2rem;
+}

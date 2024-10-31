@@ -1,0 +1,813 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: var(--fontFamily);
+  scroll-behavior: smooth;
+}
+
+:root {
+  --fontFamily: "Karla", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --primary-color: #AA14F0;
+  /* primary color tints */
+  --primary-50: #F6E7FD;
+  --primary-100: #EECFFC;
+  --primary-200: #DC9FF9;
+  --primary-300: #CB6FF6;
+  --primary-400: #BA3FF3;
+  --primary-500: #AA14F0;
+  /* same as primary-color */
+  --primary-600: #870CC0;
+  --primary-700: #650990;
+  --primary-800: #430660;
+  --primary-900: #220330;
+  --primary-950: #110218;
+  /* gray colors */
+  --gray: #808080;
+  --gray-50: #f2f2f2;
+  --gray-100: #e6e6e6;
+  --gray-200: #cccccc;
+  --gray-300: #b3b3b3;
+  --gray-400: #999999;
+  --gray-500: #808080;
+  /* same as gray */
+  --gray-600: #666666;
+  --gray-700: #4d4d4d;
+  --gray-800: #333333;
+  --gray-900: #1a1a1a;
+  --gray-950: #0d0d0d;
+  /* danger-color shades and tints */
+  --danger-color: #ff0000;
+  --danger-50: #ffe5e5;
+  --danger-100: #ffcccc;
+  --danger-200: #ff9999;
+  --danger-300: #ff6666;
+  --danger-400: #ff3333;
+  --danger-500: #ff0000;
+  --danger-600: #cc0000;
+  --danger-700: #990000;
+  --danger-800: #660000;
+  --danger-900: #330000;
+  --danger-950: #1a0000;
+  /* success-color shades and tins */
+  --success-color: #4bb543;
+  --success-50: #edf8ec;
+  --success-100: #dbf1da;
+  --success-200: #b8e3b5;
+  --success-300: #94d68f;
+  --success-400: #70c86a;
+  --success-500: #4bb543;
+  --success-600: #3d9537;
+  --success-700: #2e7029;
+  --success-800: #1f4a1c;
+  --success-900: #0f250e;
+  --success-950: #081307;
+  /* warning-color shades and tins */
+  --warning-color: #ffcc00;
+  --warning-50: #fffae5;
+  --warning-100: #fff5cc;
+  --warning-200: #ffeb99;
+  --warning-300: #ffe066;
+  --warning-400: #ffd633;
+  --warning-500: #ffcc00;
+  --warning-600: #cca300;
+  --warning-700: #997a00;
+  --warning-800: #665200;
+  --warning-900: #332900;
+  --warning-950: #1a1400;
+  /* royal-blue color shades and tints */
+  --info-50: #ecf0fc;
+  --info-color: #4169e1;
+  --info-950: #060a16;
+  --info-100: #cad5f7;
+  --info-200: #a8baf1;
+  --info-300: #859fec;
+  --info-400: #6384e6;
+  --info-500: #4169e1;
+  --info-600: #3556b9;
+  --info-700: #2a4390;
+  --info-800: #1e3067;
+  --info-900: #121d3f;
+}
+
+html,
+body {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-moz-selection {
+  color: white;
+  background-color: var(--primary-300);
+}
+
+::selection {
+  color: white;
+  background-color: var(--primary-300);
+}
+
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 65px var(--gray-50);
+          box-shadow: inset 0 0 65px var(--gray-50);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--gray-200);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-200);
+  outline: 1px solid var(--primary-400);
+}
+
+.App {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+h1 {
+  font-size: 3.75rem;
+  /* 60px */
+  line-height: 4.375rem;
+  /* 70px */
+}
+
+h2 {
+  font-size: 2.375rem;
+  /* 38px */
+  line-height: 3.125rem;
+  /* 50px */
+}
+
+h3 {
+  font-size: 1.5rem;
+  /* 24px */
+  line-height: 2.125rem;
+  /* 34px */
+}
+
+h4 {
+  font-size: 1.375rem;
+  /* 22px */
+  line-height: 1.75rem;
+  /* 28px */
+}
+
+h5 {
+  font-size: 1.125rem;
+  /* 18px */
+  line-height: 1.5rem;
+  /* 24px */
+}
+
+h6 {
+  font-size: 1rem;
+  /* 18px */
+  line-height: 1.375rem;
+  /* 24px */
+}
+
+button:disabled {
+  background-color: var(--gray-100);
+  color: var(--gray-300);
+  border-color: var(--gray-100);
+  cursor: no-drop;
+}
+
+button:disabled svg {
+  fill: var(--gray-300);
+}
+
+.btnText {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--primary-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnText:hover {
+  color: var(--primary-600);
+}
+
+.btnText:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.btnPrimary {
+  font-weight: 400;
+  color: white;
+  border: 2px solid var(--primary-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  background: var(--primary-color);
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnPrimary:not(:disabled):hover {
+  background-color: var(--primary-400);
+  border: 2px solid var(--primary-400);
+}
+
+.btnPrimary:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background-color: var(--primary-600);
+}
+
+.btnPrimary svg {
+  fill: white;
+}
+
+.btnSecondary {
+  font-weight: 400;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-50);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  background: var(--primary-50);
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnSecondary:not(:disabled):hover {
+  background-color: var(--primary-100);
+  border-color: var(--primary-100);
+}
+
+.btnSecondary:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background-color: var(--primary-200);
+  border-color: var(--primary-200);
+}
+
+.btnSecondary svg {
+  fill: var(--primary-color);
+}
+
+.btnNeutral {
+  font-weight: 500;
+  color: var(--gray-950);
+  border: 2px solid var(--gray-50);
+  background: var(--gray-50);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnNeutral svg {
+  fill: var(--gray-950);
+}
+
+.btnNeutral:not(:disabled):hover {
+  background-color: var(--gray-100);
+  border: 2px solid var(--gray-100);
+}
+
+.btnNeutral:not(:disabled):active {
+  background-color: var(--gray-200);
+  border-color: var(--gray-200);
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+}
+
+.btn--large {
+  font-weight: 500;
+  font-size: 1rem !important;
+  height: 52px;
+  padding: 0 2rem;
+  border-radius: 1rem !important;
+  gap: 0.75rem;
+}
+
+.btn--medium {
+  font-weight: 500;
+  font-size: 1rem;
+  height: 48px;
+  padding: 0 1.5rem;
+  border-radius: 1rem;
+  gap: 0.5rem;
+}
+
+.btn--small {
+  font-weight: 400 !important;
+  font-size: 0.875rem !important;
+  /* 14px */
+  height: 36px;
+  padding: 0 1rem;
+  border-radius: 0.75rem;
+  gap: 0.25rem;
+}
+
+.btn--transparent {
+  background: transparent !important;
+}
+
+.btn--large svg {
+  width: 24px;
+  height: 24px;
+}
+
+.btn--medium svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn--small svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btnGhost {
+  font-weight: 500;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  /* background: white; */
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnGhost:not(:disabled):hover,
+.btnGhost:not(:disabled):focus {
+  background-color: var(--primary-500);
+  color: white;
+}
+
+.btnGhost:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+}
+
+.btnGhost svg {
+  fill: var(--primary-color);
+}
+
+.btnDark {
+  font-weight: 500;
+  color: white;
+  border: 2px solid var(--gray-900);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  /* background: white; */
+  background-color: var(--gray-900);
+  cursor: pointer;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnDark:not(:disabled):hover {
+  background-color: var(--gray-800);
+  border-color: var(--gray-800);
+}
+
+.btnDark:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background-color: var(--gray-950);
+  border-color: var(--gray-950);
+}
+
+.btnDark svg {
+  fill: white;
+}
+
+.btnDanger {
+  font-weight: 500;
+  color: white;
+  border: 2px solid var(--danger-500);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  /* background: white; */
+  background-color: var(--danger-500);
+  cursor: pointer;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnDanger:not(:disabled):hover {
+  background-color: var(--danger-400);
+  border-color: var(--danger-400);
+}
+
+.btnDanger:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background-color: var(--danger-600);
+  border-color: var(--danger-600);
+}
+
+.btnDanger svg {
+  fill: white;
+}
+
+.btnSuccess {
+  font-weight: 500;
+  color: white;
+  border: 2px solid var(--success-500);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  /* background: white; */
+  background-color: var(--success-500);
+  cursor: pointer;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnSuccess:not(:disabled):hover {
+  background-color: var(--success-400);
+  border-color: var(--success-400);
+}
+
+.btnSuccess:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background-color: var(--success-600);
+  border-color: var(--success-600);
+}
+
+.btnSuccess svg {
+  fill: white;
+}
+
+.btnInfo {
+  font-weight: 500;
+  color: white;
+  border: 2px solid var(--info-500);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  /* background: white; */
+  background-color: var(--info-500);
+  cursor: pointer;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnInfo:not(:disabled):hover {
+  background-color: var(--info-400);
+  border-color: var(--info-400);
+}
+
+.btnInfo:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background-color: var(--info-600);
+  border-color: var(--info-600);
+}
+
+.btnWarning {
+  font-weight: 500;
+  color: var(--gray-950);
+  border: 2px solid var(--warning-500);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  /* background: white; */
+  background-color: var(--warning-500);
+  cursor: pointer;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.btnWarning:not(:disabled):hover {
+  background-color: var(--warning-400);
+  border-color: var(--warning-400);
+}
+
+.btnWarning:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background-color: var(--warning-600);
+  border-color: var(--warning-600);
+}
+
+.btnWarning svg {
+  fill: white;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btnIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--primary-color);
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.btnIcon svg {
+  fill: white;
+}
+
+.btnIcon:not(:disabled):hover {
+  background: var(--primary-400);
+}
+
+.btnIcon:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background: var(--primary-600);
+}
+
+.btnIconNeutral {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  border-radius: 1rem;
+  background-color: white;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.btnIconNeutral svg {
+  fill: var(--gray-950);
+}
+
+.btnIconNeutral:not(:disabled):hover {
+  background-color: var(--gray-50);
+}
+
+.btnIconNeutral:not(:disabled):active {
+  -webkit-transform: scale(0.975);
+          transform: scale(0.975);
+  background-color: var(--gray-100);
+}
+
+.btnIcon--large {
+  width: 52px;
+  height: 52px;
+}
+
+.btnIcon--large svg {
+  width: 24px;
+  height: 24px;
+}
+
+.btnIcon--medium {
+  width: 48px;
+  height: 48px;
+  padding: 0.75rem;
+}
+
+.btnIcon--medium svg {
+  width: 24px;
+  height: 24px;
+}
+
+.btnIcon--small {
+  width: 32px;
+  height: 32px;
+}
+
+.btnIcon--small svg {
+  width: 18px;
+  height: 18px;
+}
+
+.inputContainer {
+  /* max-width: 360px; */
+  width: 100%;
+  min-width: 240px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputContainer label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.inputContainer input {
+  width: 100%;
+  padding: 0 1rem;
+  height: 52px;
+  border: 1px solid var(--gray-200);
+  font-size: 1rem;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.inputContainer input::-webkit-input-placeholder {
+  color: var(--gray-500);
+}
+
+.inputContainer input:-ms-input-placeholder {
+  color: var(--gray-500);
+}
+
+.inputContainer input::-ms-input-placeholder {
+  color: var(--gray-500);
+}
+
+.inputContainer input::placeholder {
+  color: var(--gray-500);
+}
+
+.inputContainer input:hover,
+.inputContainer input:focus {
+  border-color: var(--primary-color);
+}
+
+.inputError {
+  color: var(--danger-color);
+  font-size: 0.875rem;
+  padding-left: 0.75rem;
+}
+
+.errorBorder {
+  border: 2px solid var(--danger-300) !important;
+}
+
+.logoWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .75rem;
+}
+
+.logoWrapper svg {
+  width: 32px;
+  height: 32px;
+}
+
+.logoWrapper h3 {
+  font-family: 'Comfortaa', 'Karla', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-500);
+}
+
+/* don't touch this swiper css */
+.careerSwiper .swiper-button-prev,
+.careerSwiper .swiper-button-next {
+  color: white;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+@media (max-width: 1560px) {
+  .careerSwiper .swiper-button-next {
+    right: 2px;
+  }
+}
+
+@media (max-width: 1560px) {
+  .careerSwiper .swiper-button-prev {
+    left: 2px;
+  }
+}
+
+.careerSwiper .swiper-button-prev::after,
+.careerSwiper .swiper-button-next::after {
+  color: white;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  font-size: 3rem;
+}
+
+@media (max-width: 540px) {
+  .careerSwiper .swiper-button-prev::after,
+  .careerSwiper .swiper-button-next::after {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1560px) {
+  .careerSwiper .swiper-button-prev::after,
+  .careerSwiper .swiper-button-next::after {
+    font-size: 2rem;
+  }
+}
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,41 @@
+/* .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 2%;
+    font-family: sans-serif;
+    background-color: white;
+}
+.box2{
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+.box2 button{
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 2px solid blueviolet;
+} */
+
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 3%;
+    font-family: sans-serif;
+    padding-right: 200px;
+}
+.box2{
+    display: flex;
+    align-items: center;
+}
+.box2 > button, .box2 > div > buttton{
+    background-color: transparent;
+    padding: 5px 10px;
+    border: none;
+    font-size: 20px;
+}

@@ -1,0 +1,11 @@
+.documentCard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #fff8;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}

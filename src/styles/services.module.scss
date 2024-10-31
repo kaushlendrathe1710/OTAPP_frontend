@@ -1,0 +1,329 @@
+.pageWrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 80px;
+  min-height: 100vh;
+  @media (max-width: 450px) {
+    padding: 0 1.5rem;
+    padding-top: 80px;
+  }
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin: 1.75rem 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--gray-900);
+    @media (max-width: 1140px) {
+      font-size: 3.15rem;
+      line-height: 1.2;
+    }
+    @media (max-width: 425px) {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin: 1rem 0;
+    }
+  }
+  p {
+    font-size: 0.975rem;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+}
+
+.gradientHeading {
+  font-size: 2.55rem;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(to left, #f86bdf, #ff5722);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  letter-spacing: -0.85px;
+  line-height: 1.25;
+  &::selection {
+    -webkit-text-fill-color: white;
+  }
+  @media (max-width: 1140px) {
+    font-size: 2.35rem;
+    line-height: 1.2;
+  }
+  @media (max-width: 425px) {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+}
+.gradientHeadingSm {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(to left, #f86bdf, #2294ff);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  letter-spacing: -0.85px;
+  line-height: 1.25;
+  &::selection {
+    -webkit-text-fill-color: white;
+  }
+  @media (max-width: 1140px) {
+    font-size: 2.15rem;
+    line-height: 1.2;
+  }
+  @media (max-width: 425px) {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+}
+.firstSection {
+  margin: 4rem 0;
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 0.975rem;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+  h3 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gray-800);
+  }
+  > div {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    img {
+      max-width: 440px;
+      @media (max-width: 990px) {
+        max-width: 360px;
+      }
+      @media (max-width: 840px) {
+        max-width: 320px;
+      }
+    }
+  }
+}
+.listSection,
+.lastSection {
+  margin: 4rem 0;
+  h2 {
+    margin-top: 2rem;
+  }
+  ul {
+    margin: 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    @media (max-width: 800px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @media (max-width: 425px) {
+      margin: 1rem !important;
+    }
+    li {
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--gray-900);
+      line-height: 1.5;
+      margin-left: 6rem;
+      list-style-image: url(https://img.icons8.com/fluency-systems-regular/18/null/ball-point-pen.png);
+      @media (max-width: 1180px) {
+        margin-left: 3rem;
+      }
+      @media (max-width: 425px) {
+        margin-left: 1rem;
+      }
+      &::marker {
+        display: none;
+      }
+    }
+  }
+}
+.thirdSection {
+  margin: 8rem 0;
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    img {
+      max-width: 480px;
+      @media (max-width: 990px) {
+        max-width: 360px;
+      }
+      @media (max-width: 840px) {
+        max-width: 320px;
+      }
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    p {
+      max-width: 680px;
+      font-size: 0.975rem;
+      font-weight: 400;
+      line-height: 1.75;
+    }
+  }
+  > div:nth-child(2) {
+    flex-direction: row-reverse;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+  }
+}
+.lastSection {
+  margin: 4rem 0;
+  h2 {
+    margin: 2rem 0;
+  }
+  p {
+    font-size: 0.975rem;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+  ol {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    li {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.75;
+    }
+  }
+}
+
+.helpSection {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    h2 {
+      margin: 2rem 0;
+    }
+    p {
+      font-size: 0.975rem;
+      font-weight: 400;
+      line-height: 1.75;
+    }
+    img {
+      max-width: 480px;
+      @media (max-width: 990px) {
+        max-width: 360px;
+      }
+      @media (max-width: 840px) {
+        max-width: 320px;
+      }
+    }
+  }
+  > div:nth-child(2n) {
+    margin: 4rem 0;
+    flex-direction: column;
+    gap: 0rem;
+    ol {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      li {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.75;
+      }
+    }
+  }
+}
+
+.paragraphsContainer {
+  display: flex;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  align-items: start !important;
+  p{
+    max-width: 640px;
+  }
+  > p:nth-child(2n) {
+    align-self: flex-end;
+  }
+}
+
+.stepsContainer{
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start !important;
+  gap: 1rem;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .step{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    h3:first-letter{
+      font-size: 3.25rem;
+      font-weight: 800;
+      color: #e16bf8;
+      opacity: 0.25;
+    }
+    h3{
+      font-size: 1.875rem;
+      font-weight: 500;
+      color: var(--gray-800);
+    }
+  }
+}
+.betterAssignmentsContainer{
+  margin-top: 2rem;
+  display: flex;
+  align-items: start !important;
+  flex-direction: column;
+  gap: 1rem;
+  .betterAssignment{
+    max-width: 768px;
+    b{
+      font-size: 1.125rem;
+      line-height: 1.75;
+      padding-right: 0.5rem !important;
+      color: var(--primary-500);
+    }
+    p{
+      display: inline;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.buttonBox{
+    position: absolute;
+    top: 5px;
+    left: 50px;
+    background-color: white;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 100px;
+    border-radius: 10px;
+}

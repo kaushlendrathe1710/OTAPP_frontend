@@ -1,0 +1,1 @@
+export { default as StudentPersonalDetails } from "./personal_details/PersonalDetails"

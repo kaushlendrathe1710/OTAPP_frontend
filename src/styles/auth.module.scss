@@ -1,0 +1,587 @@
+.registerPageWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+  position: relative;
+}
+
+.blobWrapper1 {
+  position: absolute;
+  top: 0%;
+  left: -5%;
+  width: 50vw;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(80px);
+
+  div {
+    transform: rotate(45deg);
+    width: 40%;
+    height: 30%;
+    border-radius: 50%;
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(170, 20, 240, 0.35) 100%);
+  }
+}
+
+.blobWrapper2 {
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  width: 50vw;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(80px);
+
+  div {
+    transform: rotate(45deg);
+    width: 40%;
+    height: 30%;
+    border-radius: 50%;
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(170, 20, 240, 0.35) 100%);
+  }
+}
+
+.registerPage {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.registerHeader {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 90px;
+  width: 100%;
+  padding-top: 4rem;
+}
+
+.registerHeader h2 {
+  display: inline-block;
+  //   font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary-500);
+}
+
+.registerOption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 900;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.35;
+    font-weight: 400;
+    color: var(--gray-600);
+  }
+}
+
+.registerFormContainer {
+  //   width: 440px;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 2rem;
+  padding: 2rem 4rem;
+  padding-bottom: 3rem;
+  margin: 3rem auto;
+  transition: 300ms;
+  box-shadow: 8.32785px 8.32785px 24.9835px rgba(2, 2, 70, 0.15);
+}
+
+.registerFormHeader {
+  text-align: center;
+}
+
+.registerFormHeader h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.registerFormHeader h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.registerFormWrapper {
+  margin-top: 2rem;
+  padding: 0 2rem;
+}
+
+.registerForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.countryCodeInput {
+  display: flex;
+  flex-direction: row;
+}
+
+.countryCodeBtn {
+  border: 2px solid var(--gray-100);
+  outline: none;
+  background: white;
+  transition: 300ms;
+  min-width: 50px;
+  max-width: 70px;
+  padding: 0px 10px;
+  margin: 0px 5px 0px 0px;
+  border-radius: 12px;
+  box-shadow: 0 1px 1.5rem 0 var(--gray-50);
+  justify-content: center;
+  align-items: center;
+}
+
+.codeInputBtnContainer {
+  box-shadow: 0 1px 1.5rem 0 var(--gray-50);
+  border: 2px solid var(--gray-100);
+  position: absolute;
+  top: 78px;
+  left: 0px;
+  width: max-content;
+  min-width: 150px;
+  height: 200px;
+  z-index: 999;
+  background-color: rgb(255, 255, 255);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.codeInputBtnContainer::-webkit-scrollbar {
+  width: 5px;
+}
+
+.codeInputBtnContainer::-webkit-scrollbar-thumb {
+  background: var(--gray-200);
+  border-radius: 8px;
+}
+
+.codeInputBtn {
+  background: white;
+  border: none;
+  width: 100%;
+  min-height: 35px;
+  max-height: 35px;
+}
+
+.codeInputBtn:hover {
+  background: var(--gray-100);
+  transition: all 0.4s ease-in-out;
+}
+
+.inputCon {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 0.5;
+
+  label {
+    font-weight: 600;
+    color: var(--gray-900);
+    font-size: 1rem;
+    all: unset;
+  }
+}
+
+.inputCon input,
+.inputCon select {
+  width: 100%;
+  border-radius: 12px;
+  padding: 0 1rem;
+  height: 52px;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1.5px solid var(--gray-50);
+  outline: none;
+  background: var(--gray-50);
+  transition: 300ms;
+  // box-shadow: 0 1px 1.5rem 0 var(--gray-50);
+  &:not(:invalid):focus {
+    border: 1.5px solid var(--primary-color);
+    background-color: white;
+    // box-shadow: 0 1px 1.5rem 0 var(--primary-50);
+  }
+
+  &::placeholder {
+    font-size: 1rem;
+    color: var(--gray-500);
+  }
+}
+
+.inputCon textarea {
+  width: 100%;
+  border-radius: 12px;
+  min-height: 5rem;
+  max-height: 10rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 2px solid var(--gray-50);
+  outline: none;
+  background: var(--gray-50);
+  transition: 300ms;
+
+  &:not(:invalid):focus {
+    border: 2px solid var(--primary-color);
+    background-color: white;
+    // box-shadow: 0 1px 1.5rem 0 var(--primary-50);
+  }
+
+  &::placeholder {
+    color: var(--gray-500);
+  }
+}
+
+.inputCon ul {
+  display: none;
+  // margin-top: 0.25rem;
+  margin-left: 2rem;
+  transition: 300ms;
+}
+
+.inputCon p {
+  /* padding-left: .5rem; */
+  position: relative;
+  left: -1rem;
+  margin-bottom: 0;
+  font-size: .95rem;
+  color: var(--gray-900);
+}
+
+.inputCon ul li {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.inputCon input:focus~ul {
+  display: block;
+}
+
+.inputError {
+  font-size: 0.8rem;
+  color: var(--danger-color);
+  padding: 0 1rem;
+}
+.errorBorder {
+  border: 1.5px solid var(--danger-200) !important;
+}
+.registerForm form button[type="submit"] {
+  width: 100%;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: .75rem;
+}
+
+.orSepration {
+  margin: 1.5rem auto;
+  width: 100%;
+  /* background-color: white; */
+  text-align: center;
+  position: relative;
+}
+
+.orSepration span {
+  background-color: white;
+  border-radius: 4px;
+  z-index: 2;
+  position: relative;
+  padding: 0 0.5rem;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.orSepration hr {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  border-color: var(--gray-50);
+  /* border-width: 1px; */
+  border-style: solid;
+  opacity: 1;
+  margin: 0;
+}
+
+.registerWithProvider {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.registerWithProvider>h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-right: 0.5rem;
+}
+
+.providerButton {
+  width: 100%;
+  /* width: fit-content; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* padding: 0rem 1rem; */
+  /* width: 52px; */
+  height: 52px;
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.brandImg {
+  width: 25px;
+  height: auto;
+}
+
+.providerButton span {
+  /* display: none; */
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.providerButton:hover {
+  background-color: var(--gray-50);
+}
+
+.providerButton:active {
+  transform: scale(0.975);
+}
+
+.loginOption {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
+
+.loginOption p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gray-600);
+}
+
+.loginOption a {
+  font-weight: 500;
+  color: var(--gray-950);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--gray-950);
+}
+
+.forgotPassword {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  align-self: flex-end;
+  border: none;
+  background-color: white;
+}
+
+.forgetPassword:hover {
+  color: var(--gray-600);
+}
+
+.footerWrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  margin-top: 6rem;
+  border-top: 1px solid var(--gray-100);
+
+  footer {
+    max-width: 540px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gray-900);
+    }
+  }
+}
+
+// stepper style
+.stepperWrapper {
+  position: relative;
+  width: 100%;
+  height: 32px;
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    color: var(--gray-800);
+    font-weight: 500;
+    // background-color: var(--gray-color);
+    background-color: white;
+    border-radius: 50%;
+    z-index: 4;
+    box-shadow: 0 1px 1.5rem 0 var(--gray-100);
+    transition: 300ms;
+  }
+}
+
+.index1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.index2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition-delay: 300ms;
+  // box-shadow: 0 1px 1.5rem 0 var(--primary-50);
+}
+
+.indexFill {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  box-shadow: 0 1px 1.5rem 0 var(--primary-50) !important;
+}
+
+.formProgress {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  height: 4px;
+  width: 0%;
+  background-color: var(--primary-500);
+  z-index: 2;
+  transition: linear 300ms;
+}
+
+.progressBackground {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  translate: 0 -50%;
+  height: 4px;
+  background-color: var(--gray-100);
+  z-index: 1;
+}
+
+.userTypeBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 52px;
+  border-radius: 12px;
+  background: white;
+}
+
+.userTypeRadio {
+  padding: 12px;
+  width: 50%;
+  height: 52px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 15px;
+  align-items: center;
+}
+
+.radioInput {
+  width: 22px;
+  height: 22px;
+}
+
+.radioLabel {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (max-width: 520px) {
+  .registerFormContainer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .registerHeader {
+    padding-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  .registerOption {
+    gap: 0.5rem;
+  }
+
+  .registerFormContainer {
+    margin: 1rem auto;
+    border-radius: 1rem;
+  }
+
+  .registerFormWrapper {
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .footerWrapper {
+    margin-top: 2rem;
+  }
+}

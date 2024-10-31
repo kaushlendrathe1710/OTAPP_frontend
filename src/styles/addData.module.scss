@@ -1,0 +1,429 @@
+.mainContainer {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(32px) saturate(180%);
+    width: 100%;
+    border-radius: 24px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.AllCountryRelatedWrapper {
+    position: absolute;
+    height: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    // border: 2px solid red;
+
+    .IPAbuttonContainer {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 1rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(32px) saturate(120%);
+        box-shadow: 0 8px 32px 0 rgb(31 38 135 / 15%);
+
+        .studentIPA,
+        .tutorIPA {
+            height: 100%;
+            width: 50%;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.5);
+            font-size: 18px;
+        }
+        .studentIPA {
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+        }
+
+        .tutorIPA {
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+
+        .toggleClass{
+            background-color: var(--primary-500);
+            color: white;
+        }
+    }
+}
+
+.topContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchContainer {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.searchContainer label {
+    font-size: 20px;
+}
+
+.searchCountry {
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 0px 7px 0px 7px;
+    background-color: rgba(255, 255, 255);
+}
+
+.searchCountry::placeholder {
+    font-size: 18px;
+    padding: 0px 7px 0px 7px;
+    text-align: center;
+}
+
+.createCountryButton {
+    border: none;
+    width: max-content;
+    padding: 0px 14px;
+    height: 55px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 18px;
+}
+
+.createCountryButton:hover {
+    background-color: rgba(190, 190, 190, 0.76);
+    transition: 0.3s all ease-in-out;
+}
+
+.countryTable {
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+}
+
+.tableHeader {
+    height: 55px;
+    background: rgb(233, 233, 233);
+    font-size: 20px;
+}
+
+.tableBody {
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.actionIcons {
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.trash:hover {
+    color: rgba(255, 0, 0, 0.753);
+    transition: 0.4s all;
+}
+
+.createFormMainContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -500%;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.toggleClass {
+    top: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.createdCountryWrapper {
+    background-color: black;
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.btnClose {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    z-index: 999;
+    font-size: 24px;
+    position: absolute;
+}
+
+.CountryBtnClose {
+    top: 46px;
+    left: 66%;
+}
+
+.JobFormClose {
+    top: 50px;
+    left: 66%;
+}
+
+.SubjectBtnClose {
+    left: 66%;
+    top: 256px;
+}
+
+.formContainer {
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(32px) saturate(180%);
+    border-radius: 24px;
+    padding: 10px;
+}
+
+.formCountryContainer {
+    height: max-content;
+}
+
+.formSubjectContainer {
+    height: 350px !important;
+}
+
+.formJobContainer {
+    height: 830px;
+}
+
+.formJobContainer textarea {
+    border-radius: 24px;
+    font-size: 20px;
+    padding: 8px;
+    border: none;
+}
+
+.formJobContainer select {
+    border-radius: 24px;
+    font-size: 20px;
+    padding: 8px;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    background-color: white;
+}
+
+textarea::placeholder {
+    padding: 0px 8px 0px 8px;
+}
+
+.formSubjectContainer {
+    height: 800px;
+}
+
+.entryForm {
+    padding: 10px 0px 10px 0px;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.entryForm h2 {
+    text-align: center;
+}
+
+.inputContainer {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.inputContainer label {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.inputContainer input {
+    height: 55px;
+    border: none;
+    border-radius: 24px;
+}
+
+.inputContainer input {
+    height: 50px;
+    border: none;
+    border-radius: 24px;
+    padding: 0px 8px 0px 8px;
+    font-size: 20px;
+}
+
+.inputContainer textarea {
+    border: none;
+    border-radius: 18px;
+    padding: 3px 8px 3px 8px;
+    font-size: 20px;
+}
+
+input::placeholder {
+    font-size: 18px;
+}
+
+.btnAdd {
+    height: 50px;
+    border-radius: 24px;
+    background-color: rgba(153, 175, 207, 0.8);
+    border: none;
+    font-size: 18px;
+    color: black;
+    margin-top: 15px;
+}
+
+.btnAdd:hover {
+    background-color: rgba(132, 161, 206, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1440px) {
+
+    .btnClose {
+        left: 68%;
+        top: 68px;
+    }
+
+    .CountryBtnClose {
+        left: 72%;
+    }
+
+    .JobFormClose {
+        top: 50px;
+        left: 66%;
+    }
+
+    .SubjectBtnClose {
+        left: 72%;
+        top: 210px;
+    }
+
+    .topContainer {
+        margin-top: -6px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .btnClose {
+        left: 78%;
+        top: 88px;
+    }
+
+    .CountryBtnClose {
+        left: 84%;
+    }
+
+    .JobFormClose {
+        top: 50px;
+        left: 76%;
+    }
+
+    .SubjectBtnClose {
+        left: 85%;
+        top: 220px;
+    }
+}
+
+// <--Delete Component-->
+
+.deleteBackground,
+.deleteModalWrapper {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.deleteModalWrapperClass {
+    top: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.deleteBackground {
+    opacity: 0.4;
+    background-color: black;
+}
+
+.dangerContainer {
+    background-color: rgb(253, 101, 101);
+    height: 10px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+
+}
+
+.deleteContainer {
+    width: 30%;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(32px) saturate(180%);
+}
+
+.deleteHeader {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+.deletePara {
+    font-size: 18px;
+    margin-top: 10px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.BtnContainer {
+    height: 50px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+
+.btnConfirm,
+.btnCancle {
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.btnConfirm {
+    background-color: #ff6666;
+}
+
+.btnCancle {
+    background-color: #94d68f;
+}

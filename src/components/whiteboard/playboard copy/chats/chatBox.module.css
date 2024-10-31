@@ -1,0 +1,52 @@
+
+.chatBox{
+    position: absolute;
+    right: 0px;
+    top: 86px;
+    background-color: white;
+    padding: 5px 10px;
+    min-width: 300px;
+    height: calc(100% - 90px);
+}
+.chatBox header{
+    padding: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.msgContainer{
+    box-shadow: inset 0px 0px 5px #ddd;
+    padding: 5px 0;
+    height: 86%;
+    overflow-y: scroll;
+}
+.inputBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+.inputBox > input{
+    padding: 5px 10px;
+    border: 2px solid #ccc;
+    width: 60%;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.inputBox .sendBtn{
+    border-radius: 4px !important;
+    border-color: #ccc !important;
+    border: 2px solid #ccc;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+.inputBox .callBtn{
+    padding: 5px 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.callBtn:hover{
+    background-color: #eee;
+}

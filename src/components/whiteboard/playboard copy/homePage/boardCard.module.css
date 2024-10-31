@@ -1,0 +1,10 @@
+.boardCard{
+    background-color: white;
+    margin: 5px;
+    border-radius: 10px;
+}
+.boardCard h2{
+    padding: 10px;
+    min-width: 300px;
+    text-align: center;
+}

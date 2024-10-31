@@ -1,0 +1,15 @@
+.editInput {
+    font-family: sans-serif;
+    padding: 5px 10px;
+    font-size: 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid blueviolet;
+    outline: 1px solid blueviolet;
+    /* -ms-overflow-style: none; */
+    /* scrollbar-width: none; */
+}
+
+.editInput::-webkit-scrollbar {
+    /* display: none; */
+}

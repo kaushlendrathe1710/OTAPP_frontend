@@ -1,0 +1,65 @@
+.waveformContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
+  width: 280px;
+  height: 64px;
+  // width: 100%;
+  position: relative;
+  .timingWrapper {
+    position: absolute;
+    // bottom: -10px;
+    // left: 64px;
+    bottom: -30%;
+    left: 23%;
+    font-size: 11px;
+    color: var(--gray-500);
+    font-weight: 500;
+    cursor: default;
+    button {
+      margin-left: 0.5rem;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray-600);
+      padding: 0.125rem 0.35rem;
+      border-radius: 0.25rem;
+      border: none;
+      background-color: var(--info-50);
+    }
+  }
+}
+.waveform {
+  width: inherit;
+}
+.controls {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  button {
+    width: inherit !important;
+    height: inherit !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-400) !important;
+    border-radius: 50% !important;
+    border: none;
+    box-shadow: 0 1px 8px 0 rgba(31, 38, 135, 0.1);
+    svg {
+      rotate: 0deg !important;
+    }
+  }
+}
+.voiceMark {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--info-500);
+}

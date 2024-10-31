@@ -1,0 +1,44 @@
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+.heading{
+    text-align: center;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container form > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+.container form input{
+    margin: 5px;
+    padding: 18px 20px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    background-color: var(--primary-50);
+}
+
+.container form button{
+    margin: 5px;
+    padding: 18px 20px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    background-color: var(--primary-200);
+}
+.container form .createBoardBtn{
+    background-color: var(--primary-400);
+    color: white;
+    font-size: 16px;
+}

@@ -1,0 +1,131 @@
+.headerWrapper {
+  max-width: 768px;
+  width: 100%;
+  margin: auto;
+
+  h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+.createCoAdminFormWrapper {
+  max-width: 460px;
+  width: 100%;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    135deg,
+    rgb(255, 255, 255, 0.6),
+    rgb(255, 255, 255, 0.4)
+  );
+  backdrop-filter: blur(32px) saturate(140%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  border: 1px solid rgba(#fff, 0.25);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+    margin: 10px 0px;
+    height: 80px;
+    // border: 2px solid red;
+
+    .Country {
+      border: 2px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    label {
+      font-size: 22px;
+      padding: 0px 5px;
+    }
+
+    input {
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(32px) saturate(180%);
+      border: none;
+      border-radius: 20px;
+      padding: 0px 10px;
+      font-size: 18px;
+    }
+  }
+
+  .countryCodeInputContainer {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+
+    label {
+      font-size: 20px;
+      padding: 0px 10px;
+    }
+
+    .countryCodeInput {
+      display: flex;
+
+      input {
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(32px) saturate(180%);
+        border: none;
+        border-radius: 20px;
+        padding: 0px 10px;
+        font-size: 18px;
+        width: 100%;
+      }
+    }
+  }
+
+  .inputContainerRadio {
+    height: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 10px;
+    flex-direction: column;
+
+    label {
+      font-size: 22px;
+      padding: 0px 5px;
+    }
+
+    .radioInput {
+      display: flex;
+      justify-content: start;
+      gap: 15px;
+      min-height: 40px;
+      width: 100%;
+      align-items: center;
+
+      div {
+        display: flex;
+        align-items: center;
+      }
+
+      label {
+        font-size: 20px;
+      }
+
+      input {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}

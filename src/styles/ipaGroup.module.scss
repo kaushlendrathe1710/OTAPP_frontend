@@ -1,0 +1,89 @@
+.IPAWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    background-color: rgba(#fff, 0.75);
+    backdrop-filter: blur(4px);
+    display: grid;
+    place-content: center;
+    z-index: 1;
+    transition: all 300ms;
+    animation: zoom-out 200ms 1 both;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    @keyframes zoom-out {
+        0% {
+            transform: scale(0.75);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .IPAContainer {
+        // max-width: 768px;
+        // width: 100%;
+        // height: fit-content;
+        width: 768px;
+        height: 768px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(32px);
+        box-shadow: 0 8px 32px 0 rgb(31 38 135 / 15%);
+        border-radius: 1rem;
+        position: relative;
+        padding: 1rem;
+
+        .ipaFormContainer {
+            // border: 2px solid red;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            gap: 10px;
+
+            label {
+                font-size: 20px;
+            }
+
+            input {
+                height: 45px;
+                border-radius: 20px;
+                border: none;
+                font-size: 18px;
+                padding: 0 10px;
+                // width: 50%;
+            }
+
+            .toggleClass {
+                background-color: var(--primary-500);
+                color: white;
+            }
+        }
+    }
+}
+
+.btnClose {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    z-index: 999;
+    font-size: 24px;
+    position: absolute;
+}
+
+.CountryBtnClose {
+    top: 46px;
+    left: 66%;
+}
+
+.toggleClass {
+    top: 0;
+    transition: all 0.3s ease-in-out;
+}

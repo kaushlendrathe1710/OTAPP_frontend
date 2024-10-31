@@ -1,0 +1,43 @@
+.container{
+    display: block;
+    /* border: 1px solid #0001; */
+    box-shadow: inset 0px 0px 100px var(--primary-50);
+    border-radius: 10px;
+}
+.usersList{
+    /* outline: 2px solid rgb(66, 56, 56); */
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.usersList::-webkit-scrollbar{
+    width: 20px;
+}
+.usersList li{
+    list-style-type: none;
+    /* margin: 10px 20px; */
+    margin: 0;
+}
+.usersList li > label{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.usersList li > label:hover{
+    background-color: var(--primary-50);
+}
+.usersList li input[type=checkbox]{
+    width: fit-content;
+    border: 2px solid black;
+}
+
+.container .userSearch{
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 98%;
+    background-color: var(--primary-50);
+    padding: 10px;
+}

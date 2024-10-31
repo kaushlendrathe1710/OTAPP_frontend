@@ -1,0 +1,90 @@
+.customChatMessageToast {
+  display: flex;
+  gap: 0.75rem !important;
+  align-items: center !important;
+  max-width: 360px !important;
+  width: 100%;
+  padding: 1.05rem 1rem;
+  border: 1px solid var(--primary-500);
+  border-radius: 0.75rem !important;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px) saturate(120%);
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.1);
+  .icon {
+    width: 36px;
+    height: 36px;
+    color: var(--primary-400);
+  }
+  .metaData {
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+    flex: 2;
+  }
+  .toastTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 1.35;
+  }
+  .toastDescription {
+    font-size: 0.75rem;
+    color: var(--gray-900);
+  }
+  .toastActions {
+    display: flex;
+    gap: 0.35rem;
+    .dismissBtn {
+      width: 32px;
+      height: 32px;
+      background-color: transparent;
+      border-radius: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      transition: all 150ms;
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      &:active {
+        transform: scale(0.975);
+      }
+    }
+  }
+}
+.slideLeft {
+  -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.slideRight {
+  -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(150px);
+    transform: translateX(150px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+    opacity: 0.25;
+  }
+}

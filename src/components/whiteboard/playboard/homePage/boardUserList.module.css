@@ -1,0 +1,26 @@
+.userListBtn{
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border-color: blueviolet;
+}
+.BoardUserList{
+    margin-left: 20px;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    /* border: 2px solid blueviolet; */
+    box-shadow: 5px 5px 5px #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.BoardUserList > li {
+    list-style: none;
+    width: 75px;
+    padding: 5px 10px;
+    background-color: white;
+}
+.BoardUserList > li:hover {
+    background-color: rgb(231, 205, 255);
+    cursor: pointer;
+}

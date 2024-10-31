@@ -1,0 +1,131 @@
+$c-1: #FC8E51;
+$c-2: #FA61F9;
+
+.pageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  text-shadow: 0 30px 10px rgba(#000, .15);
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #2C3E50, #BDC3C7);
+//   &:before {
+//     height: 60vmax;
+//     width: 60vmax;
+//     z-index: -2;
+//   }
+//   &:after {
+//     height: 40vmax;
+//     width: 40vmax;
+//     z-index: -1;
+//   }
+}
+
+.main {
+  text-align: center;
+  position: relative;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  p {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 8rem;
+    font-weight: 900;
+  }
+}
+
+.bubble {
+  background: linear-gradient($c-1,$c-2);
+  border-radius: 50%;
+  box-shadow: 0 30px 15px rgba(#000, .10);
+  position: absolute;
+  transition: all 300ms linear;
+  animation: animate-ball 6s linear infinite;
+  &:before, &:after {
+    content: '';
+    background: linear-gradient($c-1,$c-2);
+    border-radius: 50%;
+    box-shadow: 0 30px 15px rgba(#000, .10);
+    position: absolute;
+  }
+  
+  &:nth-child(1) {
+    top: 15vh;
+    left: 15vw;
+    height: 22vmin;
+    width: 22vmin;
+    
+    &:before {
+      width: 13vmin;
+      height: 13vmin;
+      bottom: -25vh;
+      right: -10vmin;
+    }
+  }
+  &:nth-child(2) {
+    top: 20vh;
+    left: 38vw;
+    height: 10vmin;
+    width: 10vmin;
+    &:before {
+      width: 5vmin;
+      height: 5vmin;
+      bottom: -10vh;
+      left: -8vmin;
+    }
+  }
+  &:nth-child(3) {
+    top: 12vh;
+    right: 30vw;
+    height: 13vmin;
+    width: 13vmin;
+    &:before {
+      width: 3vmin;
+      height: 3vmin;
+      bottom: -15vh;
+      left: -18vmin;
+      z-index: 6;
+    }
+  }
+  &:nth-child(4) {
+    top: 25vh;
+    right: 18vw;
+    height: 18vmin;
+    width: 18vmin;
+    &:before {
+      width: 7vmin;
+      height: 7vmin;
+      bottom: -10vmin;
+      left: -15vmin;
+    }
+  }
+  &:nth-child(5) {
+    top: 60vh;
+    right: 18vw;
+    height: 28vmin;
+    width: 28vmin;
+    &:before {
+      width: 10vmin;
+      height: 10vmin;
+      bottom: 5vmin;
+      left: -25vmin;
+    }
+  }
+}
+
+@keyframes animate-ball {
+    0%,100%{
+        // filter: grayscale(0);
+        rotate: 0deg 0 0;
+        scale: 1;
+    }
+    50%{
+        // filter: grayscale(1);
+        rotate: 35deg 0 0;
+        scale: .975;
+    }
+}

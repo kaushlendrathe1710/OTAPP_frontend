@@ -1,0 +1,231 @@
+.forwardParentWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -500%;
+    transition: all 0.3s ease-in-out;
+}
+
+.toggleforwardParentWrapper {
+    top: 0%;
+    transition: all 0.3s ease-in-out;
+}
+
+.ForwardWrapper {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.ForwardContainer {
+    width: 380px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px) saturate(110%);
+    border-radius: 20px;
+}
+
+.closeForwardBtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    // position: absolute;
+    // top: 110px;
+    // left: 1050px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 18px;
+
+    &:active {
+        transform: scale(.9);
+    }
+}
+
+.ForwardContainerHeader {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+
+    h6 {
+        font-size: 20px;
+    }
+
+    input {
+        width: 25px;
+        height: 25px;
+    }
+
+    .forwardActionContainer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+
+        label {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}
+
+.mainContainer {
+    width: 100%;
+    height: 460px;
+    overflow-y: auto;
+    padding: 8px 12px;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--gray-100);
+        border-radius: 8px;
+    }
+}
+
+.usersContainer {
+    height: 70px;
+    border-radius: 20px;
+    margin: 10px 0px;
+    background-color: rgba(231, 231, 231, 0.5);
+    backdrop-filter: blur(12px) saturate(110%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+
+    .userInfo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 25px;
+
+        h6 {
+            font-size: 20px;
+        }
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: fill;
+    }
+
+    input {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.forwardFooter {
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-300);
+    padding: 8px 12px;
+    border-radius: 0px 0px 20px 20px;
+
+    .nameContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 85%;
+        height: 100%;
+        gap: 3px;
+    }
+
+    h5 {
+        font-size: 16px;
+        color: white;
+    }
+
+    button {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: none;
+        background-color: var(--primary-500);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+}
+
+.camera{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px) saturate(110%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .header{
+        width: 100%;
+        height: 50px;
+        background-color: var(--primary-500);
+        border-radius: 20px 20px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 20px;
+        padding: 0px 15px;
+
+        button{
+            width: 35px;
+            height: 35px;
+            font-size: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--primary-500);
+            border: none;
+            color: white;
+
+            &:active{
+                transform: scale(0.9);
+            }
+        }
+
+        h3{
+            color: white;
+        }
+    }
+}
+
+.cameraContainer{
+    height: 500px;
+}
+
+.captureButton{
+    width: 120px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: var(--primary-500);
+    color: white;
+    border: none;
+}

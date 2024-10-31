@@ -1,0 +1,35 @@
+.upcommingSessions{
+    /* padding: 10px; */
+    height: 90vh;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.createSessionBtn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    /* background-color: var( --primary-color); */
+    /* color: white; */
+    color: var( --primary-color);
+    /* border-color: var( --primary-color); */
+    box-shadow: 2px 5px 10px #0002;
+}
+.heading{
+    margin-top: 10px;
+}
+.actionButton{
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--info-500);
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}

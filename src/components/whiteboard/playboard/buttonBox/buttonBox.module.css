@@ -1,0 +1,47 @@
+.buttonBox{
+    position: absolute;
+    top: 150px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 4px 2px #0001;
+    border-radius: 50px;
+    padding: 5px 2px;
+    background-color: white;
+}
+.buttonBox > div{
+    position: relative;
+}
+/* .buttonBox > div > button{
+    margin: 2px;
+    background-color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+} */
+.colorBox{
+    display: inline-block;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0;
+}
+.buttonBox button input[type=color]{
+    border: none;
+    width: 150%;
+    height: 180%;
+    transform: translate(-12%, -20%);
+}
+.buttonBox button:hover,
+.buttonBox button:focus{
+    background-color: #f6e7fd;
+}
+.buttonBox .selectedBtn{
+    color: #aa14f0;
+    background-color: #f6e7fd;
+}

@@ -1,0 +1,75 @@
+.table-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .week-label {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .week-input {
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  .payment-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 10px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  td {
+    border-bottom: 1px solid #ddd;
+    color: #333;
+  }
+  
+  .chat-button {
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  .chat-button:hover {
+    background-color: #3e8e41;
+  }
+  

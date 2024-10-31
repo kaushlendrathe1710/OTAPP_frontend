@@ -1,0 +1,12 @@
+.participentsList {
+    cursor: pointer;
+}
+.participentsList > p {
+    display: flex;
+    align-content: center;
+}
+
+.participentsList ul li {
+    margin-left: 20px;
+    list-style-type: circle;
+}
