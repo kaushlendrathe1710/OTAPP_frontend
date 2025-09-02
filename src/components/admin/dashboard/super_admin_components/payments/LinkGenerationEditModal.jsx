@@ -15,59 +15,173 @@ export const LinkGenerationEditModal = ({
   clickedPaymentLinkDetails,
   refetch,
 }) => {
-  let {
-    amount,
-    currency,
-    name,
-    email,
-    title,
-    description,
-    createdFor: editLinkFor,
-  } = clickedPaymentLinkDetails.metadata;
+  let { amount, currency, expire_by, reminder_enable, description, id } =
+    clickedPaymentLinkDetails;
 
-  let { id } = clickedPaymentLinkDetails;
+  let { name, email, contact } = clickedPaymentLinkDetails.customer;
+  let editLinkFor = clickedPaymentLinkDetails?.notes.policy_name;
   const modalRef = useClickOutside(handleCloseModal);
 
   const [currencies, setCurrencies] = useState([]);
+  const [phoneCountryData, setPhoneCountryData] = useState("");
 
-  const { data } = useQuery("countries", async () => {
-    const res = await axios.get("https://restcountries.com/v3.1/all");
-    return res.data;
-  });
+  // Fallback currency list
+  const fallbackCurrencies = [
+    "USD",
+    "EUR",
+    "GBP",
+    "JPY",
+    "AUD",
+    "CAD",
+    "CHF",
+    "CNY",
+    "SEK",
+    "NZD",
+    "MXN",
+    "SGD",
+    "HKD",
+    "NOK",
+    "TRY",
+    "RUB",
+    "INR",
+    "BRL",
+    "ZAR",
+    "KRW",
+    "AED",
+    "SAR",
+    "QAR",
+    "KWD",
+    "BHD",
+    "OMR",
+    "JOD",
+    "LBP",
+    "EGP",
+    "ILS",
+    "THB",
+    "MYR",
+    "IDR",
+    "PHP",
+    "VND",
+    "PKR",
+    "BDT",
+    "LKR",
+    "NPR",
+    "MMK",
+  ];
+
+  const {
+    data,
+    isLoading: isCountriesLoading,
+    error: countriesError,
+  } = useQuery(
+    "currencies",
+    async () => {
+      try {
+        // Try multiple APIs as fallbacks
+        const apis = [
+          "https://api.exchangerate-api.com/v4/latest/USD",
+          "https://api.fxratesapi.com/latest",
+          "https://restcountries.com/v3.1/all",
+        ];
+
+        for (const apiUrl of apis) {
+          try {
+            console.log(`Trying API: ${apiUrl}`);
+            const res = await axios.get(apiUrl, { timeout: 5000 });
+
+            if (
+              apiUrl.includes("exchangerate-api") ||
+              apiUrl.includes("fxratesapi")
+            ) {
+              // These APIs return currency rates directly
+              const currencyCodes = Object.keys(res.data.rates || res.data);
+              const allCurrencies = ["USD", ...currencyCodes].sort();
+              console.log("Currencies from rates API:", allCurrencies);
+              return { currencies: allCurrencies };
+            } else if (apiUrl.includes("restcountries")) {
+              // REST Countries API
+              if (res.data && Array.isArray(res.data)) {
+                let extractCurrencies = res.data
+                  .filter(
+                    (country) =>
+                      country.currencies &&
+                      typeof country.currencies === "object"
+                  )
+                  .map((country) => {
+                    let currency = "";
+                    if (country.currencies) {
+                      for (const key in country.currencies) {
+                        currency = key;
+                        break;
+                      }
+                    }
+                    return currency;
+                  })
+                  .filter((currency) => currency && currency.length > 0);
+
+                const uniqueCurrencies = Array.from(
+                  new Set(extractCurrencies)
+                ).sort();
+                console.log("Currencies from countries API:", uniqueCurrencies);
+                return { currencies: uniqueCurrencies };
+              }
+            }
+          } catch (apiError) {
+            console.warn(`API ${apiUrl} failed:`, apiError.message);
+            continue; // Try next API
+          }
+        }
+
+        // If all APIs fail, throw error to trigger fallback
+        throw new Error("All currency APIs failed");
+      } catch (error) {
+        console.error("Error fetching currencies:", error);
+        throw error;
+      }
+    },
+    {
+      retry: 1,
+      retryDelay: 1000,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    }
+  );
+
+  // console.log("expire by: ", expire_by)
 
   useEffect(() => {
-    if (data) {
-      let extractCurrencies = data?.map((country) => {
-        let currency = "";
-        for (const key in country.currencies) {
-          currency = key;
-        }
-        return currency;
-      });
-      setCurrencies(Array.from(new Set(extractCurrencies)));
-      // console.log("data: ", Array.from(new Set(extractCurrencies)));
-      // console.log("data: ",extractCurrencies);
+    if (data && data.currencies) {
+      console.log("Setting currencies:", data.currencies);
+      setCurrencies(data.currencies);
+    } else if (countriesError) {
+      console.log("Using fallback currencies due to API error");
+      setCurrencies(fallbackCurrencies);
     }
-  }, [data]);
+  }, [data, countriesError]);
 
   const formik = useFormik({
     initialValues: {
       name: name,
       email: email,
       amount: amount / 100,
+      phoneNumber: contact,
       currency: currency,
-      title: title,
       description: description,
-      createdFor: editLinkFor,
+      expiredDate: expire_by !== 0 ? getInputOnlyDateFormat(expire_by) : 0,
+      policy_name: clickedPaymentLinkDetails?.notes.policy_name,
+      reminder_enable: reminder_enable,
     },
     validationSchema: Yup.object({
-      title: Yup.string()
-        .required("Title is required")
-        .min(3, "Title must included minimum 3 letters"),
       name: Yup.string()
         .required("Name is required")
         .min(3, "Name must included minimum 3 letters"),
       email: Yup.string().email().required("Email is required"),
+      phoneNumber: Yup.string()
+        .phone(
+          phoneCountryData,
+          true,
+          "Phone number must be a valid phone number."
+        )
+        .required("Phone number is required"),
       amount: Yup.number()
         .required("Amount is required")
         .min(1, "Minimum value will be 1"),
@@ -78,15 +192,21 @@ export const LinkGenerationEditModal = ({
       let newValues = {
         amount: values.amount,
         currency: values.currency,
-        title: values.title,
         description: values.description,
-        name: values.name,
-        email: values.email,
-        createdFor: values.createdFor,
+        cust_name: values.name,
+        cust_email: values.email,
+        cust_contact: values.phoneNumber,
+        policy_name: values.policy_name,
+        expireBy:
+          values.expiredDate === 0
+            ? expire_by
+            : new Date(values.expiredDate).getTime(),
+        countryCode: phoneCountryData,
+        reminder_enable: values.reminder_enable,
       };
-      console.log(newValues, id);
+      console.log(newValues);
       api
-        .patch(`/payment/update-payment-link?paymentLinkId=${id}`, newValues, {
+        .patch(`/payment/payment-link-update?paymentLinkId=${id}`, newValues, {
           headers: {
             Authorization: getAccessToken(),
           },
@@ -177,6 +297,38 @@ export const LinkGenerationEditModal = ({
               ) : null}
             </div>
             <div className={glassStyles.inputWrapper}>
+              <label htmlFor="phoneNumber">Phone Number</label>
+              <div
+                style={{ display: "flex", alignItems: "center", width: "100%" }}
+              >
+                <CountryCode
+                  height={48}
+                  data={phoneCountryData}
+                  setData={setPhoneCountryData}
+                />
+                <input
+                  style={{ width: "100%" }}
+                  type="tel"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  value={formik.values.phoneNumber}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder="Enter phone number"
+                  className={
+                    formik.errors.phoneNumber &&
+                    formik.touched.phoneNumber &&
+                    glassStyles.errorBorder
+                  }
+                />
+              </div>
+              {formik.errors.phoneNumber && formik.touched.phoneNumber ? (
+                <div className={glassStyles.error}>
+                  {formik.errors.phoneNumber}
+                </div>
+              ) : null}
+            </div>
+            <div className={glassStyles.inputWrapper}>
               <label htmlFor="amount">Amount</label>
               <input
                 type="number"
@@ -213,14 +365,24 @@ export const LinkGenerationEditModal = ({
                 }
               >
                 <option value="">Select currency</option>
-                {currencies.length > 0 ? (
+                {isCountriesLoading ? (
+                  <option value="" disabled>
+                    Loading currencies...
+                  </option>
+                ) : countriesError ? (
+                  <option value="" disabled>
+                    Error loading currencies
+                  </option>
+                ) : currencies.length > 0 ? (
                   currencies?.map((item, i) => (
                     <option key={i} value={item}>
                       {item}
                     </option>
                   ))
                 ) : (
-                  <option value="">Unable to fetch currencies</option>
+                  <option value="" disabled>
+                    No currencies available
+                  </option>
                 )}
               </select>
               {formik.errors.currency && formik.touched.currency ? (
@@ -230,19 +392,16 @@ export const LinkGenerationEditModal = ({
               ) : null}
             </div>
             <div className={glassStyles.inputWrapper}>
-              <label htmlFor="title">Title</label>
+              <label htmlFor="expiredDate">Expiry date</label>
               <input
-                type="text"
-                name="title"
-                id="title"
-                value={formik.values.title}
-                placeholder="Title"
+                type="date"
+                name="expiredDate"
+                id="expiredDate"
+                value={formik.values.expiredDate}
+                placeholder="Enter expired date"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              {formik.errors.title && formik.touched.title ? (
-                <div className={glassStyles.error}>{formik.errors.title}</div>
-              ) : null}
             </div>
             <div className={glassStyles.inputWrapper}>
               <label htmlFor="description">Description</label>
@@ -265,6 +424,22 @@ export const LinkGenerationEditModal = ({
                   {formik.errors.description}
                 </div>
               ) : null}
+            </div>
+            <div className={glassStyles.checkboxWrapper}>
+              <div className={glassStyles.flexWrapper}>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="reminder_enable"
+                    id="reminder_enable"
+                    // value={formik.values.reminder_enable}
+                    checked={formik.values.reminder_enable}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  <label htmlFor="reminder_enable">Reminder</label>
+                </div>
+              </div>
             </div>
             <button type="submit" className="btnPrimary btn--large">
               Update Link
