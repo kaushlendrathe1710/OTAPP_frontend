@@ -180,7 +180,7 @@ export const LinkGenerationModal = ({
       phoneNumber: "",
       currency: "",
       description: "",
-      expiredDate: 0,
+
       policy_name: generateLinkFor,
     },
     validationSchema: Yup.object({
@@ -210,16 +210,15 @@ export const LinkGenerationModal = ({
         amount: values.amount,
         currency: values.currency,
         description: values.description,
-        cust_name: values.name,
-        cust_email: values.email,
-        cust_contact: formatPhoneNumber(values.phoneNumber, phoneCountryData),
-        policy_name: values.policy_name,
-        expireBy:
-          values.expiredDate !== 0 ? new Date(values.expiredDate).getTime() : 0,
+        name: values.name,
+        email: values.email,
+        title: `${values.policy_name} Payment Link`,
+        createdFor: values.policy_name,
+        contact: formatPhoneNumber(values.phoneNumber, phoneCountryData),
       };
       // console.log(newValues);
       api
-        .post("/payment/generate-link-order", newValues, {
+        .post("/payment/create-payment-link", newValues, {
           headers: {
             Authorization: getAccessToken(),
           },
@@ -424,18 +423,7 @@ export const LinkGenerationModal = ({
                 </div>
               ) : null}
             </div>
-            <div className={glassStyles.inputWrapper}>
-              <label htmlFor="expiredDate">Expiry date</label>
-              <input
-                type="date"
-                name="expiredDate"
-                id="expiredDate"
-                // value={formik.values.expiredDate}
-                placeholder="Enter expired date"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </div>
+
             <div className={glassStyles.inputWrapper}>
               <label htmlFor="description">Description</label>
               <textarea
