@@ -28,6 +28,8 @@ export const LinkGenerationModal = ({
   const [isWhatsappNumberValidate, setIsWhatsappNumberValidate] =
     useState(true);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Fallback currency list
   const fallbackCurrencies = [
     "USD",
@@ -206,6 +208,13 @@ export const LinkGenerationModal = ({
         toast.error("Phone number must be valid", { duration: 4000 });
         return;
       }
+
+      if (isSubmitting) {
+        return; // Prevent multiple submissions
+      }
+
+      setIsSubmitting(true);
+
       let newValues = {
         amount: values.amount,
         currency: values.currency,
@@ -224,15 +233,51 @@ export const LinkGenerationModal = ({
           },
         })
         .then((res) => {
-          // console.log("res: ", res)
-          toast.success("Payment link generate successfully", {
+          console.log("Payment link created:", res.data);
+          toast.success("Payment link generated successfully", {
             duration: 4000,
           });
+
+          // Close modal first
           handleCloseModal();
-          // refetch();
-          setCurrentlyMappedPaymentLinksData((prev) => [res.data, ...prev]);
+
+          // Refetch the main data to get updated list
+          refetch();
+
+          // Also update the local state immediately for better UX
+          if (res.data) {
+            // Transform the response to match the expected format for LinkGeneration component
+            const newPaymentLink = {
+              id: res.data.id,
+              url: res.data.url,
+              active: res.data.active,
+              metadata: {
+                name: res.data.metadata?.name || values.name,
+                email: res.data.metadata?.email || values.email,
+                amount: res.data.amount || 0,
+                currency: res.data.currency || "USD",
+                createdFor: res.data.metadata?.createdFor || values.policy_name,
+                paid: "false", // New links are not paid yet
+              },
+              created: res.data.created,
+              ...res.data,
+            };
+
+            setCurrentlyMappedPaymentLinksData((prev) => [
+              newPaymentLink,
+              ...prev,
+            ]);
+          }
+
+          setIsSubmitting(false);
         })
-        .catch((e) => console.log(e));
+        .catch((e) => {
+          console.error("Error creating payment link:", e);
+          toast.error("Failed to create payment link. Please try again.", {
+            duration: 4000,
+          });
+          setIsSubmitting(false);
+        });
     },
   });
 
@@ -446,8 +491,12 @@ export const LinkGenerationModal = ({
                 </div>
               ) : null}
             </div>
-            <button type="submit" className="btnPrimary btn--large">
-              Generate Link
+            <button
+              type="submit"
+              className="btnPrimary btn--large"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Generating..." : "Generate Link"}
             </button>
           </form>
         </div>

@@ -62,6 +62,23 @@ export default function LinkGeneration() {
 
   const windowInnerWidth = useWindowWidth();
 
+  // Refetch function for the modal
+  const refetch = async () => {
+    try {
+      setLoading((prev) => ({ ...prev, isMountLoading: true }));
+      const data = await fetchPaymentLinks("", limit.current);
+      const links = data.data;
+      setPaymentLinks(links);
+      setLastPaymentId(links[links.length - 1]?.id || "");
+      setHasMore(links.length === limit.current);
+    } catch (err) {
+      setIsError(true);
+      console.log("Error refetching payment links: ", err);
+    } finally {
+      setLoading((prev) => ({ ...prev, isMountLoading: false }));
+    }
+  };
+
   useEffect(() => {
     (async function () {
       try {
@@ -171,7 +188,8 @@ export default function LinkGeneration() {
         <LinkGenerationModal
           generateLinkFor={generateLinkFor}
           setIsLinkGenerationModalOpen={setIsLinkGenerationModalOpen}
-          setAllPaymentsLinksData={setPaymentLinks}
+          refetch={refetch}
+          setCurrentlyMappedPaymentLinksData={setPaymentLinks}
         />
       ) : null}
       <div className="outletContainer">
