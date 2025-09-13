@@ -14,3 +14,4 @@ export const Stepper = ({ activeIndex }) => {
     </div>
   );
 };
+ 
